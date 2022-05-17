@@ -14,19 +14,23 @@ public class SocialMediaDetails {
 	public SocialMediaDetails(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+	@FindBy(xpath = "//span[text()='My Info']")
+	WebElement Myinfo;
+
+	public void Myinfo() throws InterruptedException {
+		Myinfo.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(10000);
+	}
 	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[3]/a/span[2]")
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[2]/a/span[2]")
 	WebElement SocialMediaInfo;
 	
 	@FindBy(css = "#socialMediaDiv > div > a > i")
 	WebElement AddButton ;
-	
-	@FindBy(id = "typeId")
-	WebElement Type ;
 	
 	@FindBy(id = "profileName")
 	WebElement ProfileName;
@@ -35,19 +39,9 @@ public class SocialMediaDetails {
 	WebElement Link ;
 	
 	@FindBy(id = "modal-save-button")
-	WebElement Attach_Save;
+	WebElement Detail_Save;
 	
-	@FindBy(xpath = "//label[@for='checkbox_list2_7']")
-	WebElement OldRecord ;
 	
-	@FindBy(xpath = "//i[@class='material-icons icons-color orange-text']")
-	WebElement Selectoption ;
-	
-	@FindBy(xpath = "//a[text()='Delete Selected']")
-	WebElement DeleteRecord ;
-	
-	@FindBy(id = "save-button")
-	WebElement Deleteforever ;
 	
 	public void socialmediadetails(String name, String link) {
 		MenuButton.click();
@@ -55,15 +49,10 @@ public class SocialMediaDetails {
 		SocialMediaInfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		AddButton.click();
-		Type.click();
-		new Select(Type).selectByIndex(2);
 		ProfileName.sendKeys(name);
 		Link.sendKeys(link);
-		Attach_Save.click();
-		OldRecord.click();
-		Selectoption.click();
-		DeleteRecord.click();
-		Deleteforever.click();
+		Detail_Save.click();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 }

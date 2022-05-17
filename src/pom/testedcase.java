@@ -1,4 +1,4 @@
-package testcase;
+package pom;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +15,7 @@ import pageobjects.SalaryDetails;
 import pageobjects.SocialMediaDetails;
 import testbase.Baseclass;
 
-public class Testcase extends Baseclass {
+public class testedcase extends Baseclass {
 
 	@Test
 	public void Validdata() throws InterruptedException {
@@ -43,26 +43,31 @@ public class Testcase extends Baseclass {
 		SalaryDetails salarydetails =PageFactory.initElements(driver, SalaryDetails.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//ContactDetails
-		ContactDetails cd = PageFactory.initElements(driver, ContactDetails.class);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		cd.contactdetails("6,Hargrave Street", "Manitoba", "Winnepeg", "(508)25254565", "+021-4658479", 
-				"Johnty456@gmail.com", "Rhodes123@gmail.com",
-				"C:\\Users\\Admin\\Desktop\\Testing Data\\Contact Detail File.docx", 
-				"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf", "Contact details attachment");
-		
+		/*
+		 * //ContactDetails ContactDetails cd = PageFactory.initElements(driver,
+		 * ContactDetails.class); driver.manage().timeouts().implicitlyWait(10,
+		 * TimeUnit.SECONDS); cd.contactdetails("6,Hargrave Street", "Manitoba",
+		 * "Winnepeg", "(508)25254565", "+021-4658479", "Johnty456@gmail.com",
+		 * "Rhodes123@gmail.com",
+		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\Contact Detail File.docx",
+		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf",
+		 * "Contact details attachment");
+		 */
 		//SocialMedia Details
 		SocialMediaDetails smd = PageFactory.initElements(driver, SocialMediaDetails.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		smd.socialmediadetails("Admin", "Not Available");
 		
-		//Emergency Details
-		EmergencyContacts emergencydetails = PageFactory.initElements(driver, EmergencyContacts.class);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		emergencydetails.emergencycontact("J Kalis", "Friend", "+21-0422", "+091-276", "04879752", 
-				"C:\\Users\\Admin\\Desktop\\Testing Data\\Emergency Contact Details.docx",
-				"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf" ,"Emergengy Contact Details attachment");
-		
+		/*
+		 * //Emergency Details EmergencyContacts emergencydetails =
+		 * PageFactory.initElements(driver, EmergencyContacts.class);
+		 * driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 * emergencydetails.emergencycontact("J Kalis", "Friend", "+21-0422",
+		 * "+091-276", "04879752",
+		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\Emergency Contact Details.docx",
+		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf"
+		 * ,"Emergengy Contact Details attachment");
+		 */
 		//Dependent Details
 		Dependent dependentdetails = PageFactory.initElements(driver, Dependent.class);
 				

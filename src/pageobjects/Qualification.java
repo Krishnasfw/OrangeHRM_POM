@@ -2,63 +2,56 @@ package pageobjects;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.management.relation.Relation;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class Dependent {
+public class Qualification {
 	WebDriver driver;
 
-	public Dependent(WebDriver driver) {
+	public Qualification(WebDriver driver) {
 		this.driver = driver;
 	}
+
 	@FindBy(xpath = "//span[text()='My Info']")
 	WebElement Myinfo;
-
 	public void Myinfo() throws InterruptedException {
 		Myinfo.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+		Thread.sleep(8000);
 	}
-	
-	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[4]/a/span[2]")
-	WebElement Dependentinfo ;
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[8]/a/span[2]")
+	WebElement Membershipinfo ;
 	
-	@FindBy(xpath = "//*[@id=\"socialMediaDiv\"]/div/a/i")
+	@FindBy(xpath = "//*[@id=\"addButton\"]/div/a/i")
 	WebElement Addbutton ;
 	
-	@FindBy(id = "name")
-	WebElement Name ;
+	@FindBy(xpath = "//*[@id=\"additem-options-dropdown-qualifications\"]/li[1]/a")
+	WebElement WorkExperience ;
 	
-	@FindBy(id = "date_of_birth")
-	WebElement DOB ;
+	@FindBy(id = "employer")
+	WebElement Companyname ;
 	
-	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
-	WebElement Cancel ;
-	
-	@FindBy(id = "modal-save-button")
-	WebElement Detail_Save;
+	@FindBy(id = "jobtitle")
+	WebElement Jobrole ;
 	
 	
 	
-	public void dependentinfo(String name, String dob) {
+	public void qualifyinfo(String com_name, String role) {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Dependentinfo.click();
+		Membershipinfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Addbutton.click();
-		Name.sendKeys(name);
-		DOB.sendKeys(dob);
-		Cancel.click();
-	}
-		
+		WorkExperience.click();
+		Companyname.sendKeys(com_name);
+		Jobrole.sendKeys(role);
+}
+
+
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -70,7 +63,6 @@ public class Dependent {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-
 	public void attachment(String Vfilepath, String InVfilepath, String description) {
 
 		Attachment.click();
@@ -85,9 +77,7 @@ public class Dependent {
 		Attach_Save.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-	}
-		
 		
 	}
-
-
+	
+}

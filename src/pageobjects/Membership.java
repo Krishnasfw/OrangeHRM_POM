@@ -2,17 +2,14 @@ package pageobjects;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.management.relation.Relation;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class Dependent {
+public class Membership {
 	WebDriver driver;
 
-	public Dependent(WebDriver driver) {
+	public Membership(WebDriver driver) {
 		this.driver = driver;
 	}
 	@FindBy(xpath = "//span[text()='My Info']")
@@ -24,41 +21,38 @@ public class Dependent {
 		Thread.sleep(10000);
 	}
 	
-	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[4]/a/span[2]")
-	WebElement Dependentinfo ;
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[9]/a/span[2]")
+	WebElement Membershipinfo ;
 	
 	@FindBy(xpath = "//*[@id=\"socialMediaDiv\"]/div/a/i")
 	WebElement Addbutton ;
 	
-	@FindBy(id = "name")
-	WebElement Name ;
-	
-	@FindBy(id = "date_of_birth")
-	WebElement DOB ;
-	
-	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
-	WebElement Cancel ;
+	public void membershipinfo() {
+		MenuButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Membershipinfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Addbutton.click();
+
+}
+	@FindBy(id = "subscriptionFee")
+	WebElement Subscription_Amount ;
 	
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_Save;
 	
+	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
+	WebElement Cancel ;
 	
 	
-	public void dependentinfo(String name, String dob) {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Dependentinfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-		Name.sendKeys(name);
-		DOB.sendKeys(dob);
+	public void addmembershipinfo(String amount) {
+		Subscription_Amount.sendKeys(amount);
 		Cancel.click();
-	}
 		
+	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -70,7 +64,6 @@ public class Dependent {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-
 	public void attachment(String Vfilepath, String InVfilepath, String description) {
 
 		Attachment.click();
@@ -85,9 +78,5 @@ public class Dependent {
 		Attach_Save.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-	}
-		
-		
-	}
-
-
+}
+}

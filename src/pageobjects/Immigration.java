@@ -2,17 +2,14 @@ package pageobjects;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.management.relation.Relation;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class Dependent {
+public class Immigration {
 	WebDriver driver;
 
-	public Dependent(WebDriver driver) {
+	public Immigration(WebDriver driver) {
 		this.driver = driver;
 	}
 	@FindBy(xpath = "//span[text()='My Info']")
@@ -24,41 +21,39 @@ public class Dependent {
 		Thread.sleep(10000);
 	}
 	
-	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[4]/a/span[2]")
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[5]/a/span[2]")
 	WebElement Dependentinfo ;
 	
-	@FindBy(xpath = "//*[@id=\"socialMediaDiv\"]/div/a/i")
+	@FindBy(xpath = "//*[@id=\"immigrationDiv\"]/div/a/i")
 	WebElement Addbutton ;
 	
-	@FindBy(id = "name")
-	WebElement Name ;
+	@FindBy(id = "number")
+	WebElement Number ;
 	
-	@FindBy(id = "date_of_birth")
-	WebElement DOB ;
+	@FindBy(id = "status")
+	WebElement Status ;
 	
-	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
-	WebElement Cancel ;
+	@FindBy(id = "notes")
+	WebElement Comment ;
 	
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_Save;
 	
-	
-	
-	public void dependentinfo(String name, String dob) {
+	public void immigrationdetails(String number, String status, String comment) {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Dependentinfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Addbutton.click();
-		Name.sendKeys(name);
-		DOB.sendKeys(dob);
-		Cancel.click();
-	}
+		Number.sendKeys(number);
+		Status.sendKeys(status);
+		Comment.sendKeys(comment);
+		Detail_Save.click();
 		
+	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -70,7 +65,6 @@ public class Dependent {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-
 	public void attachment(String Vfilepath, String InVfilepath, String description) {
 
 		Attachment.click();
@@ -86,8 +80,4 @@ public class Dependent {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
-		
-		
-	}
-
-
+}

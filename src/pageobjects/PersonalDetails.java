@@ -57,15 +57,6 @@ public class PersonalDetails {
 		Save.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-	/*
-	 * Attachment.click();
-	 * 
-	 * try { File.sendKeys(Vfilepath); } catch (Exception e) {
-	 * File.sendKeys(InVfilepath); } Description.sendKeys(description);
-	 * 
-	 * Attach_Save.click(); Selectoption.click(); DeleteRecord.click();
-	 * Deleteforever.click();
-	 */
 
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;

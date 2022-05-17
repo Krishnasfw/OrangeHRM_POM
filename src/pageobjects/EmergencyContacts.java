@@ -12,7 +12,14 @@ public class EmergencyContacts {
 	public EmergencyContacts(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+	@FindBy(xpath = "//span[text()='My Info']")
+	WebElement Myinfo;
+
+	public void Myinfo() throws InterruptedException {
+		Myinfo.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(10000);
+	}
 	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
@@ -41,32 +48,8 @@ public class EmergencyContacts {
 	@FindBy(id = "modal-save-button")
 	WebElement SaveButton ;
 	
-	@FindBy(xpath = "//a[text()='Add']")
-	WebElement Attachment;
-
-	@FindBy(id = "filename")
-	WebElement File;
-
-	@FindBy(id = "description")
-	WebElement Description;
-
-	@FindBy(id = "modal-save-button")
-	WebElement Attach_Save;
-	
-	@FindBy(xpath = "//label[@for='checkbox_attachments_4']")
-	WebElement OldRecord ;
-	
-	@FindBy(xpath = "//i[@class='material-icons icons-color orange-text']")
-	WebElement Selectoption ;
-	
-	@FindBy(xpath = "//a[text()='Delete Selected']")
-	WebElement DeleteRecord ;
-	
-	@FindBy(id = "save-button")
-	WebElement Deleteforever ;
-	
 	public void emergencycontact(String name,String relation,String h_phone,String m_phone,
-			String office,String Vfilepath, String InVfilepath,String description) {
+			String office) {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		EmergencyContactInfo.click();
@@ -78,22 +61,34 @@ public class EmergencyContacts {
 		M_Phone.sendKeys(m_phone);
 		Office_Phone.sendKeys(office);
 		SaveButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+	}
+	@FindBy(xpath = "//a[text()='Add']")
+	WebElement Attachment;
+
+	@FindBy(id = "filename")
+	WebElement File;
+
+	@FindBy(id = "description")
+	WebElement Description;
+
+	@FindBy(id = "modal-save-button")
+	WebElement Attach_Save;
+
+	public void attachment(String Vfilepath, String InVfilepath, String description) {
+
 		Attachment.click();
+
 		try {
 			File.sendKeys(Vfilepath);
 		} catch (Exception e) {
 			File.sendKeys(InVfilepath);
 		}
 		Description.sendKeys(description);
-		Attach_Save.click();
-		Selectoption.click();
-		DeleteRecord.click();
-		Deleteforever.click();
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		
-		
-	}
 
+		Attach_Save.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	}
 }

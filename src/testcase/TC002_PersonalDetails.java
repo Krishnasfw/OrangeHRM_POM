@@ -15,7 +15,7 @@ public class TC002_PersonalDetails extends Baseclass {
 	
 	@DataProvider 
 	public  Object[][] PersonalDataProvider() throws Exception {
-	Object[][]testdata = ExcelData.getdata("PersonalDetails1");
+	Object[][]testdata = ExcelData.getdata("Personal_Details");
 		return testdata;
 	}
 	
@@ -39,16 +39,16 @@ public class TC002_PersonalDetails extends Baseclass {
 		 PersonalDetails pd = PageFactory.initElements(driver, PersonalDetails.class);
 		 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			pd.personalDeatils(fname, lname, employeeid, otherid, licenseno);
-			
+			Thread.sleep(8000);
 }
 	@Test(priority = 2,enabled = false)
-	public void attach() {
+	public void attach() throws Exception {
 		 PersonalDetails pd = PageFactory.initElements(driver, PersonalDetails.class);
 		 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 	pd.attachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Personal Details.docx",
 		 			"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf", 
 		 			"Personal Details Description");
-		
+		 	Thread.sleep(8000);
 	}
 	@Test (priority = 3, dataProvider ="invaliddata",enabled = false)
 	public void Invalidpersonalinfo(String fname,String lname, String employeeid, 
@@ -56,5 +56,6 @@ public class TC002_PersonalDetails extends Baseclass {
 		 PersonalDetails pd = PageFactory.initElements(driver, PersonalDetails.class);
 		 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			pd.personalDeatils(fname, lname, employeeid, otherid, licenseno);
+			Thread.sleep(8000);
 	}
 }

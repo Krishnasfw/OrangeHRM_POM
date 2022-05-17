@@ -12,12 +12,19 @@ public class ContactDetails {
 	public ContactDetails(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+	@FindBy(xpath = "//span[text()='My Info']")
+	WebElement Myinfo;
+
+	public void Myinfo() throws InterruptedException {
+		Myinfo.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(10000);
+	}
 	
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[1]/a")
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[1]/a/span[2]")
 	WebElement ContactInfo ;
 	
 	@FindBy(id = "street1")
@@ -28,6 +35,9 @@ public class ContactDetails {
 	
 	@FindBy(id = "province")
 	WebElement State ;
+	
+	@FindBy(id = "emp_zipcode")
+	WebElement ZipCode ;
 	
 	@FindBy(id = "emp_hm_telephone")
 	WebElement Telephone ;
@@ -44,6 +54,32 @@ public class ContactDetails {
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement Savebutton;
 	
+	public void contactdetails(String address1,String city,String state,String zipcode,String h_tele,String mobile, 
+			String E_mail,String other_mail) {
+		MenuButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		ContactInfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Address_1.clear();
+		Address_1.sendKeys(address1);
+		City.clear();
+		City.sendKeys(city);
+		State.clear();
+		State.sendKeys(state);
+		ZipCode.clear();
+		ZipCode.sendKeys(zipcode);
+		Telephone.clear();
+		Telephone.sendKeys(h_tele);
+		Mobile.clear();
+		Mobile.sendKeys(mobile);
+		Employee_Email.clear();
+		Employee_Email.sendKeys(E_mail);
+		OtherID.clear();
+		OtherID.sendKeys(other_mail);
+		Savebutton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -56,42 +92,9 @@ public class ContactDetails {
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
 	
-	@FindBy(xpath = "//label[@for='checkbox_attachments_2']")
-	WebElement OldRecord ;
-	
-	@FindBy(xpath = "//i[@class='material-icons icons-color orange-text']")
-	WebElement Selectoption ;
-	
-	@FindBy(xpath = "//a[text()='Delete Selected']")
-	WebElement DeleteRecord ;
-	
-	@FindBy(id = "save-button")
-	WebElement Deleteforever ;
 	
 	
-	
-	public void contactdetails(String address1,String city,String state,String h_tele,String mobile, 
-			String E_mail,String other_mail,String Vfilepath,
-			String InVfilepath,String description) {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		ContactInfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Address_1.clear();
-		Address_1.sendKeys(address1);
-		City.clear();
-		City.sendKeys(city);
-		State.clear();
-		State.sendKeys(state);
-		Telephone.clear();
-		Telephone.sendKeys(h_tele);
-		Mobile.clear();
-		Mobile.sendKeys(mobile);
-		Employee_Email.clear();
-		Employee_Email.sendKeys(E_mail);
-		OtherID.clear();
-		OtherID.sendKeys(other_mail);
-		Savebutton.click();
+	public void contactattachment(String Vfilepath, String description, String InVfilepath) {
 		Attachment.click();
 		try {
 			File.sendKeys(Vfilepath);
@@ -100,10 +103,7 @@ public class ContactDetails {
 		}
 		Description.sendKeys(description);
 		Attach_Save.click();
-		OldRecord.click();
-		Selectoption.click();
-		DeleteRecord.click();
-		Deleteforever.click();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		
