@@ -16,18 +16,12 @@ public class PersonalDetails {
 	@FindBy(xpath = "//span[text()='My Info']")
 	WebElement Myinfo;
 
-	public void Myinfo() throws InterruptedException {
-		Myinfo.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(10000);
-	}
-
 	@FindBy(id = "firstName")
 	WebElement FirstName;
 
 	@FindBy(id = "lastName")
 	WebElement LastName;
-
+	
 	@FindBy(id = "employeeId")
 	WebElement EmployeeID;
 
@@ -35,13 +29,29 @@ public class PersonalDetails {
 	WebElement OtherID;
 
 	@FindBy(id = "licenseNo")
-	WebElement License;
+	WebElement License;	
 
 	@FindBy(xpath = "//*[@id=\"pimPersonalDetailsForm\"]/materializecss-decorator[7]/div/sf-decorator/div/button")
 	WebElement Save;
+	
+	@FindBy(xpath = "//a[text()='Add']")
+	WebElement Attachment;
 
-	public void personalDeatils(String fname, String lname, String employeeid, String otherid, String licenseno)
+	@FindBy(id = "filename")
+	WebElement File;
+
+	@FindBy(id = "description")
+	WebElement Description;
+
+	@FindBy(id = "modal-save-button")
+	WebElement Attach_Save;
+
+	public void personalDeatils(String fname, String lname, String employeeid,
+			String otherid, String licenseno,String Vfilepath, String InVfilepath, String description)
 			throws Exception {
+		Myinfo.click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		FirstName.clear();
@@ -55,34 +65,20 @@ public class PersonalDetails {
 		License.clear();
 		License.sendKeys(licenseno);
 		Save.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
+			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			Attachment.click();
+			try {
+				File.sendKeys(Vfilepath);
+			} catch (Exception e) {
+				File.sendKeys(InVfilepath);
+			}
+			Description.sendKeys(description);
+			Attach_Save.click();
+			Thread.sleep(3000);
 
-	@FindBy(xpath = "//a[text()='Add']")
-	WebElement Attachment;
 
-	@FindBy(id = "filename")
-	WebElement File;
-
-	@FindBy(id = "description")
-	WebElement Description;
-
-	@FindBy(id = "modal-save-button")
-	WebElement Attach_Save;
-
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
-		Attachment.click();
-
-		try {
-			File.sendKeys(Vfilepath);
-		} catch (Exception e) {
-			File.sendKeys(InVfilepath);
 		}
-		Description.sendKeys(description);
-
-		Attach_Save.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 	}
-}
+
+		

@@ -26,14 +26,6 @@ public class S_Covid19 {
 	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[11]/a/span[2]")
 	WebElement Covid19info ;
 	
-	public void covid19() throws Exception {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Thread.sleep(5000);
-		Covid19info.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -45,8 +37,14 @@ public class S_Covid19 {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
+	
+	public void covid19(String Vfilepath, String InVfilepath, String description) throws Exception {
+		MenuButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(5000);
+		Covid19info.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		Attachment.click();
 
 		try {
@@ -70,18 +68,18 @@ public class S_Covid19 {
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save_Edit;
 	
-	public void editattachment(String editdescription) {
+	public void editattachment(String editdescription) throws Exception {
 		Edit.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Description_Edit.clear();
 		Description_Edit.sendKeys(editdescription);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Attach_Save_Edit.click();
+		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
-	
-	
-	
+		
 }
+
 

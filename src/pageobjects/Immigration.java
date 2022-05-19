@@ -48,21 +48,7 @@ public class Immigration {
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_Save;
 	
-	public void immigrationdetails(String number,String issueddate,String expirydate ,String status, String comment) throws Exception {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		ImmigrationInfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-		Thread.sleep(5000);
-		Number.sendKeys(number);
-		IssuedDate.sendKeys(issueddate);
-		ExpiryDate.sendKeys(expirydate);
-		Status.sendKeys(status);
-		Comment.sendKeys(comment);
-		Detail_Save.click();
-		
-	}
+
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -74,18 +60,33 @@ public class Immigration {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
+	
+	public void immigrationdetails(String number,String issueddate,String expirydate ,
+			String status, String comment,String Vfilepath,String InVfilepath, String description) throws Exception {
+		MenuButton.click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		ImmigrationInfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Addbutton.click();
+		Thread.sleep(5000);
+		Number.sendKeys(number);
+		IssuedDate.sendKeys(issueddate);
+		ExpiryDate.sendKeys(expirydate);
+		Status.sendKeys(status);
+		Comment.sendKeys(comment);
+		Detail_Save.click();
+		Thread.sleep(3000);
 		Attachment.click();
-
 		try {
 			File.sendKeys(Vfilepath);
 		} catch (Exception e) {
 			File.sendKeys(InVfilepath);
 		}
 		Description.sendKeys(description);
-
 		Attach_Save.click();
+
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}

@@ -42,16 +42,18 @@ public class SocialMediaDetails {
 	
 	
 	
-	public void socialmediadetails(String name, String link) {
+	public void socialmediadetails(String name, String link) throws Exception {
 		MenuButton.click();
+		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		SocialMediaInfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		AddButton.click();
 		ProfileName.sendKeys(name);
 		Link.sendKeys(link);
+		Thread.sleep(2000);
 		Detail_Save.click();
-		
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 }

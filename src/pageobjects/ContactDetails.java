@@ -51,13 +51,27 @@ public class ContactDetails {
 	@FindBy(id = "emp_oth_email")
 	WebElement OtherID ;
 	
-	@FindBy(xpath = "//button[text()='Save']")
+	@FindBy(xpath = "/html/body/div[1]/div/div/div[2]/section/div[2]/ui-view/div[2]/div/div[1]/div/button")
 	WebElement ContactDetailSavebutton;
 	
+	@FindBy(xpath = "//a[text()='Add']")
+	WebElement Attachment;
+
+	@FindBy(id = "filename")
+	WebElement File;
+
+	@FindBy(id = "description")
+	WebElement Description;
+
+	@FindBy(xpath = "/html/body/div[3]/div/div/div/div[3]/button[2]")
+	WebElement Attach_Save;
+	
+	
 	public void contactdetails(String address1,String city,String state,String zipcode,String h_tele,String mobile, 
-			String E_mail,String other_mail) {
+			String E_mail,String other_mail,String Vfilepath, String InVfilepath,String description) throws Exception {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		ContactInfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Address_1.clear();
@@ -76,25 +90,9 @@ public class ContactDetails {
 		Employee_Email.sendKeys(E_mail);
 		OtherID.clear();
 		OtherID.sendKeys(other_mail);
+		Thread.sleep(3000);
 		ContactDetailSavebutton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-	}
-	@FindBy(xpath = "//a[text()='Add']")
-	WebElement Attachment;
-
-	@FindBy(id = "filename")
-	WebElement File;
-
-	@FindBy(id = "description")
-	WebElement Description;
-
-	@FindBy(id = "modal-save-button")
-	WebElement Attach_Save;
-	
-	
-	
-	public void contactattachment(String Vfilepath, String description, String InVfilepath) {
 		Attachment.click();
 		try {
 			File.sendKeys(Vfilepath);
@@ -103,9 +101,8 @@ public class ContactDetails {
 		}
 		Description.sendKeys(description);
 		Attach_Save.click();
-		
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
 		
 		
 	}

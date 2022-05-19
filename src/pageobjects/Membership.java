@@ -30,14 +30,6 @@ public class Membership {
 	@FindBy(xpath = "//*[@id=\"socialMediaDiv\"]/div/a/i")
 	WebElement Addbutton ;
 	
-	public void membershipinfo() {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Membershipinfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-
-}
 	@FindBy(id = "subscriptionFee")
 	WebElement Subscription_Amount ;
 	
@@ -47,12 +39,7 @@ public class Membership {
 	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
 	WebElement Cancel ;
 	
-	
-	public void addmembershipinfo(String amount) {
-		Subscription_Amount.sendKeys(amount);
-		Cancel.click();
-		
-	}
+
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -64,10 +51,18 @@ public class Membership {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
+	
+	
+	public void membershipinfo(String amount,String Vfilepath, String InVfilepath, String description) throws Exception {
+		MenuButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Membershipinfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Addbutton.click();
+		Subscription_Amount.sendKeys(amount);
+		Cancel.click();
+		Thread.sleep(3000);
 		Attachment.click();
-
 		try {
 			File.sendKeys(Vfilepath);
 		} catch (Exception e) {
@@ -76,6 +71,7 @@ public class Membership {
 		Description.sendKeys(description);
 
 		Attach_Save.click();
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 }

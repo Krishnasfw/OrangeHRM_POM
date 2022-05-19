@@ -41,22 +41,6 @@ public class Qualification {
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_SaveButton ;
 	
-	
-	
-	public void qualifyinfo(String com_name, String role) {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Qualificationinfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-		WorkExperience.click();
-		Companyname.sendKeys(com_name);
-		Jobrole.sendKeys(role);
-		Detail_SaveButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-}
-
-
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -68,7 +52,22 @@ public class Qualification {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
+	
+	
+	public void qualifyinfo(String com_name, String role,
+			String Vfilepath, String InVfilepath, String description) throws Exception {
+		MenuButton.click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Qualificationinfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Addbutton.click();
+		WorkExperience.click();
+		Companyname.sendKeys(com_name);
+		Jobrole.sendKeys(role);
+		Detail_SaveButton.click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		Attachment.click();
 
@@ -80,6 +79,7 @@ public class Qualification {
 		Description.sendKeys(description);
 
 		Attach_Save.click();
+		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		

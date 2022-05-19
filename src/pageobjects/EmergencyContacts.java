@@ -48,22 +48,6 @@ public class EmergencyContacts {
 	@FindBy(id = "modal-save-button")
 	WebElement SaveButton ;
 	
-	public void emergencycontact(String name,String relation,String h_phone,String m_phone,
-			String office) {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		EmergencyContactInfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		AddButton.click();
-		Name.sendKeys(name);
-		Relationship.sendKeys(relation);
-		H_Phone.sendKeys(h_phone);
-		M_Phone.sendKeys(m_phone);
-		Office_Phone.sendKeys(office);
-		SaveButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -75,19 +59,32 @@ public class EmergencyContacts {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
+	
+	public void emergencycontact(String name,String relation,String h_phone,String m_phone,
+			String office,String Vfilepath, String InVfilepath, String description) throws Exception {
+		MenuButton.click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		EmergencyContactInfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		AddButton.click();
+		Name.sendKeys(name);
+		Relationship.sendKeys(relation);
+		H_Phone.sendKeys(h_phone);
+		M_Phone.sendKeys(m_phone);
+		Office_Phone.sendKeys(office);
+		SaveButton.click();
+		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Attachment.click();
-
 		try {
 			File.sendKeys(Vfilepath);
 		} catch (Exception e) {
 			File.sendKeys(InVfilepath);
 		}
 		Description.sendKeys(description);
-
 		Attach_Save.click();
+		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}

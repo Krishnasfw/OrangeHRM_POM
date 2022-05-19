@@ -15,11 +15,6 @@ public class JobDetails {
 	}
 	@FindBy(xpath = "//span[text()='My Info']")
 	WebElement Myinfo;
-	public void Myinfo() throws InterruptedException {
-		Myinfo.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(10000);
-	}
 	
 	@FindBy(xpath = "//*[@id='top-menu']/li[2]/a")  
 	WebElement Jobinfo;

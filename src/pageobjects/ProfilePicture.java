@@ -43,7 +43,7 @@ public class ProfilePicture {
 		ProfilePicture.sendKeys(image);
 		ProfileSave.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	}
 
 	

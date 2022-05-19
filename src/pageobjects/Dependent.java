@@ -1,9 +1,11 @@
 package pageobjects;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 public class Dependent {
@@ -34,28 +36,23 @@ public class Dependent {
 	@FindBy(id = "name")
 	WebElement Name ;
 	
+	@FindBy(id = "relationship_type")
+	WebElement Relationship ;
+	
+	@FindAll(@FindBy(id = "//*[@id=\"modal-holder\"]/div/div/div/div[2]/form/oxd-decorator[2]/div/div[2]/div/div[1]/button"))
+	List<WebElement> Relation_List ; 
+	
 	@FindBy(id = "date_of_birth")
 	WebElement DOB ;
 	
+	@FindBy(id = "relationship")
+	WebElement Relation_Type ;
 	@FindBy(xpath = "//*[@id=\"modal-holder\"]/div/div/div/div[3]/button[1]")
 	WebElement Cancel ;
 	
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_Save;
 	
-	
-	
-	public void dependentinfo(String name, String dob) {
-		MenuButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Dependentinfo.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-		Name.sendKeys(name);
-		DOB.sendKeys(dob);
-		Cancel.click();
-	}
-		
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -67,10 +64,19 @@ public class Dependent {
 
 	@FindBy(id = "modal-save-button")
 	WebElement Attach_Save;
-
-	public void attachment(String Vfilepath, String InVfilepath, String description) {
-
-		Attachment.click();
+	
+	public void dependentinfo(String name, String dob, 
+			String Vfilepath, String InVfilepath, String description ) throws Exception {
+		MenuButton.click();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Dependentinfo.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Addbutton.click();
+		Name.sendKeys(name);
+		DOB.sendKeys(dob);
+		Cancel.click();
+	Attachment.click();
 
 		try {
 			File.sendKeys(Vfilepath);
@@ -78,13 +84,9 @@ public class Dependent {
 			File.sendKeys(InVfilepath);
 		}
 		Description.sendKeys(description);
-
 		Attach_Save.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-	}
-		
-		
+		Thread.sleep(2000);
+	}	
 	}
 
 
