@@ -52,7 +52,7 @@ public class ContactDetails {
 	WebElement OtherID ;
 	
 	@FindBy(xpath = "//button[text()='Save']")
-	WebElement Savebutton;
+	WebElement ContactDetailSavebutton;
 	
 	public void contactdetails(String address1,String city,String state,String zipcode,String h_tele,String mobile, 
 			String E_mail,String other_mail) {
@@ -76,7 +76,7 @@ public class ContactDetails {
 		Employee_Email.sendKeys(E_mail);
 		OtherID.clear();
 		OtherID.sendKeys(other_mail);
-		Savebutton.click();
+		ContactDetailSavebutton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 	}

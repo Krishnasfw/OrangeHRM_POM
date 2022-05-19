@@ -30,13 +30,14 @@ public class TC010_Qualification extends Baseclass {
 			qualify.qualifyinfo(com_name, role);
 			Thread.sleep(8000);
 }
-	@Test(priority = 3,enabled = false)
-	public void attach() {
+	@Test(priority = 3,enabled = true)
+	public void attach() throws Exception {
 		Qualification qualify =PageFactory.initElements(driver, Qualification.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			qualify.attachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Qualification Details.docx",
 					"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf" ,
 					"Qualification details attachment");
+			Thread.sleep(3000);
 }
 	
 }

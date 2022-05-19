@@ -25,13 +25,19 @@ public class Immigration {
 	WebElement MenuButton;
 	
 	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[5]/a/span[2]")
-	WebElement Dependentinfo ;
+	WebElement ImmigrationInfo ;
 	
 	@FindBy(xpath = "//*[@id=\"immigrationDiv\"]/div/a/i")
 	WebElement Addbutton ;
 	
 	@FindBy(id = "number")
 	WebElement Number ;
+	
+	@FindBy(id = "issuedDate")
+	WebElement IssuedDate ;
+	
+	@FindBy(id = "expiryDate")
+	WebElement ExpiryDate ;
 	
 	@FindBy(id = "status")
 	WebElement Status ;
@@ -42,13 +48,16 @@ public class Immigration {
 	@FindBy(id = "modal-save-button")
 	WebElement Detail_Save;
 	
-	public void immigrationdetails(String number, String status, String comment) {
+	public void immigrationdetails(String number,String issueddate,String expirydate ,String status, String comment) throws Exception {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Dependentinfo.click();
+		ImmigrationInfo.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Addbutton.click();
+		Thread.sleep(5000);
 		Number.sendKeys(number);
+		IssuedDate.sendKeys(issueddate);
+		ExpiryDate.sendKeys(expirydate);
 		Status.sendKeys(status);
 		Comment.sendKeys(comment);
 		Detail_Save.click();

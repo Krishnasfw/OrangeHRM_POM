@@ -7,7 +7,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import dataprovider.ExcelData;
-import pageobjects.Immigration;
 import pageobjects.Membership;
 import testbase.Baseclass;
 
@@ -33,7 +32,7 @@ public class TC011_Membership extends Baseclass {
 		 Thread.sleep(10000);
 }
 	
-	@Test (priority = 2, dataProvider ="MembershipDataprovider",enabled = false)
+	@Test (priority = 2, dataProvider ="MembershipDataprovider",enabled = true)
 	public void ValidDependent(String amount) throws Exception  {
 		Membership membership =PageFactory.initElements(driver, Membership.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -42,12 +41,13 @@ public class TC011_Membership extends Baseclass {
 
 }
 
-	@Test(priority = 3,enabled = false)
-	public void attach() {
+	@Test(priority = 3,enabled = true)
+	public void attach() throws Exception {
 		Membership membership =PageFactory.initElements(driver, Membership.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			membership.attachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Membership Details.docx",
 					"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf" ,
 					"Membership details attachment");
+			Thread.sleep(3000);
 }
 }

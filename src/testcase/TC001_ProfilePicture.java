@@ -14,7 +14,7 @@ public class TC001_ProfilePicture extends Baseclass{
 		ProfilePicture profile = PageFactory.initElements(driver, ProfilePicture.class);
 		profile.Myinfo();
 		profile.profilePicture();
-		profile.uploadpicture("C:\\Users\\Admin\\Downloads\\Formal_man.png");
+		profile.uploadpicture("C:\\Users\\Admin\\Downloads\\Cartoon.webp");
 		
 	}
 		

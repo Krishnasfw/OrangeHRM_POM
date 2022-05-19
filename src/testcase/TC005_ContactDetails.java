@@ -20,7 +20,7 @@ public class TC005_ContactDetails extends Baseclass{
 	
 	@DataProvider 
 	public Object[][] InvalidContactDataProvider() throws Exception {
-	Object[][]testdata = ExcelData.getdata("");
+	Object[][]testdata = ExcelData.getdata("Invalid_Contact");
 		return testdata;
 	}
 	@Test(priority = 0, enabled = true)
@@ -54,6 +54,6 @@ public class TC005_ContactDetails extends Baseclass{
 		 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 	cd.contactattachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Contact Detail File.docx", 
 					"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf", "Contact details attachment");
-		 	Thread.sleep(8000);
+		 	Thread.sleep(3000);
 }
 }

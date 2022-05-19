@@ -14,7 +14,7 @@ static Workbook workbook ;
 static Sheet sheet;
 	public static Object[][] getdata(String sheetname) {
 		
-		String path = "C:\\Users\\Admin\\Desktop\\Testing Data\\OrangeTestData1.xlsx";
+		String path = "C:\\Users\\Admin\\eclipse-workspace\\OrangeHRM_POM\\testdata\\OrangeTestData1.xlsx";
 		
 		FileInputStream file = null;
 		try {

@@ -1,23 +1,10 @@
 package pom;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
-
-import pageobjects.ContactDetails;
-import pageobjects.Dependent;
-import pageobjects.EmergencyContacts;
-import pageobjects.JobDetails;
-import pageobjects.OhrmLogin;
-import pageobjects.ProfilePicture;
-import pageobjects.SalaryDetails;
-import pageobjects.SocialMediaDetails;
 import testbase.Baseclass;
 
 public class testedcase extends Baseclass {
 
-	@Test
+	/*@Test
 	public void Validdata() throws InterruptedException {
 		// LoginPage
 		OhrmLogin login = PageFactory.initElements(driver, OhrmLogin.class);
@@ -43,7 +30,7 @@ public class testedcase extends Baseclass {
 		SalaryDetails salarydetails =PageFactory.initElements(driver, SalaryDetails.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		/*
+		
 		 * //ContactDetails ContactDetails cd = PageFactory.initElements(driver,
 		 * ContactDetails.class); driver.manage().timeouts().implicitlyWait(10,
 		 * TimeUnit.SECONDS); cd.contactdetails("6,Hargrave Street", "Manitoba",
@@ -52,13 +39,13 @@ public class testedcase extends Baseclass {
 		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\Contact Detail File.docx",
 		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf",
 		 * "Contact details attachment");
-		 */
+		 
 		//SocialMedia Details
 		SocialMediaDetails smd = PageFactory.initElements(driver, SocialMediaDetails.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		smd.socialmediadetails("Admin", "Not Available");
 		
-		/*
+		
 		 * //Emergency Details EmergencyContacts emergencydetails =
 		 * PageFactory.initElements(driver, EmergencyContacts.class);
 		 * driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -67,14 +54,14 @@ public class testedcase extends Baseclass {
 		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\Emergency Contact Details.docx",
 		 * "C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf"
 		 * ,"Emergengy Contact Details attachment");
-		 */
+		 
 		//Dependent Details
 		Dependent dependentdetails = PageFactory.initElements(driver, Dependent.class);
-				
+				*/
 				
 				
 				
 				
 	}
 
-}
+

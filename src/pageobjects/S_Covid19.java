@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Qualification {
+public class S_Covid19 {
 	WebDriver driver;
 
-	public Qualification(WebDriver driver) {
+	public S_Covid19(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -23,40 +23,17 @@ public class Qualification {
 	@FindBy(id = "top-menu-trigger")
 	WebElement MenuButton;
 	
-	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[8]/a/span[2]")
-	WebElement Qualificationinfo ;
+	@FindBy(xpath = "//*[@id=\"top-menu-overflow\"]/li[11]/a/span[2]")
+	WebElement Covid19info ;
 	
-	@FindBy(xpath = "//*[@id=\"addButton\"]/div/a/i")
-	WebElement Addbutton ;
-	
-	@FindBy(xpath = "//*[@id=\"additem-options-dropdown-qualifications\"]/li[1]/a")
-	WebElement WorkExperience ;
-	
-	@FindBy(id = "employer")
-	WebElement Companyname ;
-	
-	@FindBy(id = "jobtitle")
-	WebElement Jobrole ;
-	
-	@FindBy(id = "modal-save-button")
-	WebElement Detail_SaveButton ;
-	
-	
-	
-	public void qualifyinfo(String com_name, String role) {
+	public void covid19() throws Exception {
 		MenuButton.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Qualificationinfo.click();
+		Thread.sleep(5000);
+		Covid19info.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Addbutton.click();
-		WorkExperience.click();
-		Companyname.sendKeys(com_name);
-		Jobrole.sendKeys(role);
-		Detail_SaveButton.click();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-}
-
-
+		
+	}
 	@FindBy(xpath = "//a[text()='Add']")
 	WebElement Attachment;
 
@@ -82,7 +59,29 @@ public class Qualification {
 		Attach_Save.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		
 	}
 	
+	@FindBy(xpath = "//i[text()='edit_item']")
+	WebElement Edit ;
+	
+	@FindBy(id = "description")
+	WebElement Description_Edit;
+	
+	@FindBy(id = "modal-save-button")
+	WebElement Attach_Save_Edit;
+	
+	public void editattachment(String editdescription) {
+		Edit.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Description_Edit.clear();
+		Description_Edit.sendKeys(editdescription);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Attach_Save_Edit.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	}
+	
+	
+	
 }
+

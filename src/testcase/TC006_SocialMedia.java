@@ -31,7 +31,7 @@ public class TC006_SocialMedia extends Baseclass{
 		SocialMediaDetails smd = PageFactory.initElements(driver, SocialMediaDetails.class);
 		 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			smd.socialmediadetails(name, link);
-			Thread.sleep(8000);
+			Thread.sleep(3000);
 }
 
 }

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcase.TC010_Qualification">
+      <class name="testcase.TC011_Membership">
         <methods>
-          <include name="Validpersonalinfo"/>
+          <include name="ValidDependent" invocation-numbers="0"/>
           <include name="initialize"/>
           <include name="CloseBrowser"/>
         </methods>
-      </class> <!-- testcase.TC010_Qualification -->
+      </class> <!-- testcase.TC011_Membership -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

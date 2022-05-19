@@ -32,12 +32,13 @@ public class TC008_Dependent extends Baseclass {
 		dependent.dependentinfo(name, dob);
 		Thread.sleep(8000);
 }
-	@Test(priority = 3,enabled = false)
-	public void attach() {
+	@Test(priority = 3,enabled = true)
+	public void attach() throws Exception {
 		Dependent dependent = PageFactory.initElements(driver, Dependent.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			dependent.attachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Dependant Details.docx",
 					"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf" ,
 					"Depandent details attachment");
+			Thread.sleep(3000);
 }
 }

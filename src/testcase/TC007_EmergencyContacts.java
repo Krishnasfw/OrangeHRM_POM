@@ -40,21 +40,23 @@ public class TC007_EmergencyContacts extends Baseclass {
 			emergencydetails.emergencycontact(name, relation, h_phone, m_phone, office);
 			Thread.sleep(8000);
 }
-	@Test (priority = 2, dataProvider ="InvalidEmergencyContactInfo",enabled = false)
+	@Test (priority = 2, dataProvider ="InvalidEmergencyContactInfo",enabled = true)
 	public void Invalidpersonalinfo(String name,String relation,String h_phone,String m_phone,
 			String office) throws Exception  {
 		EmergencyContacts emergencydetails = PageFactory.initElements(driver, EmergencyContacts.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			emergencydetails.emergencycontact(name, relation, h_phone, m_phone, office);
+			Thread.sleep(8000);
 			
 }
-	@Test(priority = 3,enabled = false)
-	public void attach() {
+	@Test(priority = 3,enabled = true)
+	public void attach() throws Exception {
 		EmergencyContacts emergencydetails = PageFactory.initElements(driver, EmergencyContacts.class);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			emergencydetails.attachment("C:\\Users\\Admin\\Desktop\\Testing Data\\Emergency Contact Details.docx",
 					"C:\\Users\\Admin\\Desktop\\Testing Data\\File upload for Testing.pdf" ,
 					"Emergengy Contact Details attachment");
+			Thread.sleep(3000);
 
 		
 	}
