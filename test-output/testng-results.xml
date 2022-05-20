@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-20T00:32:19 IST" name="Default suite" finished-at="2022-05-20T00:32:56 IST" duration-ms="37349">
+  <suite started-at="2022-05-20T11:24:48 IST" name="Default suite" finished-at="2022-05-20T11:25:18 IST" duration-ms="29877">
     <groups>
     </groups>
-    <test started-at="2022-05-20T00:32:19 IST" name="Default test" finished-at="2022-05-20T00:32:56 IST" duration-ms="37349">
-      <class name="testcase.TC012_Covid19">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:testcase.TC012_Covid19@1d9b7cce]" started-at="2022-05-20T00:31:55 IST" name="initialize" finished-at="2022-05-20T00:32:19 IST" duration-ms="23093" status="PASS">
+    <test started-at="2022-05-20T11:24:48 IST" name="Default test" finished-at="2022-05-20T11:25:18 IST" duration-ms="29877">
+      <class name="testcase.TC001_ProfilePicture">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:testcase.TC001_ProfilePicture@441772e]" started-at="2022-05-20T11:24:28 IST" name="initialize" finished-at="2022-05-20T11:24:48 IST" duration-ms="19975" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method signature="Myinfoclick()[pri:0, instance:testcase.TC012_Covid19@1d9b7cce]" started-at="2022-05-20T00:32:19 IST" name="Myinfoclick" finished-at="2022-05-20T00:32:37 IST" duration-ms="18194" status="PASS">
+        <test-method signature="profilepicture()[pri:0, instance:testcase.TC001_ProfilePicture@441772e]" started-at="2022-05-20T11:24:48 IST" name="profilepicture" finished-at="2022-05-20T11:25:18 IST" duration-ms="29823" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Myinfoclick -->
-        <test-method signature="covidinfo()[pri:1, instance:testcase.TC012_Covid19@1d9b7cce]" started-at="2022-05-20T00:32:37 IST" name="covidinfo" finished-at="2022-05-20T00:32:52 IST" duration-ms="14723" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- covidinfo -->
-        <test-method signature="editattach()[pri:2, instance:testcase.TC012_Covid19@1d9b7cce]" started-at="2022-05-20T00:32:52 IST" name="editattach" finished-at="2022-05-20T00:32:56 IST" duration-ms="4372" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editattach -->
-        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:testcase.TC012_Covid19@1d9b7cce]" started-at="2022-05-20T00:32:56 IST" name="CloseBrowser" finished-at="2022-05-20T00:33:00 IST" duration-ms="4161" status="PASS">
+        </test-method> <!-- profilepicture -->
+        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:testcase.TC001_ProfilePicture@441772e]" started-at="2022-05-20T11:25:18 IST" name="CloseBrowser" finished-at="2022-05-20T11:25:18 IST" duration-ms="151" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseBrowser -->
-      </class> <!-- testcase.TC012_Covid19 -->
+      </class> <!-- testcase.TC001_ProfilePicture -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

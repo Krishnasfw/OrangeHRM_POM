@@ -25,7 +25,7 @@ public class TC002_PersonalDetails extends Baseclass {
 		return testdata;
 	}
 
-	@Test(priority = 0, dataProvider = "PersonalDataProvider", enabled = false)
+	@Test(priority = 0, dataProvider = "PersonalDataProvider", enabled = true,description=" To Validate that user is able to edit the Contact details information from My info tab")
 	public void Validpersonalinfo(String fname, String lname, String employeeid, String otherid, String licenseno)
 			throws Exception {
 		PersonalDetails pd = PageFactory.initElements(driver, PersonalDetails.class);

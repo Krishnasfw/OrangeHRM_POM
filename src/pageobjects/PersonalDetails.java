@@ -76,9 +76,7 @@ public class PersonalDetails {
 			Description.sendKeys(description);
 			Attach_Save.click();
 			Thread.sleep(3000);
-
-
-		}
+	}
 	}
 
 		
